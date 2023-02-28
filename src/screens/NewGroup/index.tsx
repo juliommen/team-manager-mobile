@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import { Alert } from "react-native";
 
 import { AppError } from "@utils/AppError";
@@ -14,6 +14,8 @@ import { Input } from "@components/Input";
 
 export function NewGroup() {
   const [group, setGroup] = useState('');
+
+  const theme = useTheme()
 
   const navigation = useNavigation();
 
@@ -40,7 +42,10 @@ export function NewGroup() {
     <Container>
       <Header showBackButton />
 
-      <Content>
+      <Content
+      contentContainerStyle={{justifyContent:'center', flex:1}}
+      showsVerticalScrollIndicator={false}
+      >
         <Icon name='group'/>
         
         <Highlight 
